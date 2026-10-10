@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERLIFE - Advanced Cyber Security Command Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+    <!-- Layar Booting Sinematik Berjalan 4 Detik dengan Persentase Akurat -->
+    <div id="boot-screen">
+        <div class="boot-content">
+            <h2 class="glitch" data-text="CYBERLIFE DEFENSE SYSTEM v1.1">CYBERLIFE DEFENSE SYSTEM v8.1</h2>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <div class="boot-percentage"><span id="percent-count">0</span>%</div>
+            <p id="boot-status">Menginisialisasi Jaringan Enkripsi Kuantum...</p>
+        </div>
+    </div>
+
+    <!-- Live Threat Notification Toast -->
+    <div id="toast-alert" class="toast-hidden">
+        <span class="toast-icon">⚠️</span>
+        <div class="toast-body">
+            <strong>PERINGATAN SECTOR-04:</strong>
+            <p id="toast-msg">Mendeteksi percobaan bypass firewall...</p>
+        </div>
+    </div>
+
+    <canvas id="cyberCanvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <!-- Mode Lockdown Overlay Elegan -->
+    <div id="lockdown-overlay" class="lockdown-hidden">
+        <div class="lockdown-warning">⚠️ SISTEM DALAM KONDISI LOCKDOWN DARURAT ⚠️</div>
+    </div>
+
+    <header>
+        <div class="logo-slot" onclick="playSound('click')">
+            <img src="IKON.png" alt="Logo Cyberlife">
+        </div>
+        <div class="company-name glitch" data-text="CYBERLIFE">CYBERLIFE</div>
+        
+        <div class="header-hud-metrics">
+            <div class="metric-item">SYS_TIME: <span id="live-clock">00:00:00</span></div>
+            <div class="metric-item">NEXUS-AI LOAD: <span id="cpu-load">14%</span></div>
+            <div class="metric-item">STATUS: <span style="color:#00ffcc">SECURE</span></div>
+        </div>
+
+        <nav class="nav-menu">
+            <button class="nav-btn active" onclick="switchPage('home')">[ 01. BERANDA ]</button>
+            <button class="nav-btn" onclick="switchPage('services')">[ 02. FASILITAS ]</button>
+            <button class="nav-btn" onclick="switchPage('terminal')">[ 03. KONSOL LIVE ]</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HALAMAN 1: BERANDA -->
+        <section id="page-home" class="page-section active">
+            <div class="hud-badge">CLASSIFIED // LEVEL 5 ACCESS // NATIONAL DEFENSE MANDATE</div>
+            <h1 class="glitch" data-text="Pusat Komando Siber Nasional">Pusat Komando Siber Nasional</h1>
+            
+            <div class="home-grid-layout">
+                <div class="content-box">
+                    <p>
+                        <b>CYBERLIFE</b> adalah benteng digital mutlak bagi kedaulatan informasi Republik Indonesia. Didirikan di bawah mandat pertahanan strategis, kami melindungi seluruh ekosistem data kritikal nasional dari ancaman asimetris global dengan standar <span class="highlight">perlindungan tanpa kompromi</span>.
+                    </p>
+                    <p>
+                        Infrastruktur kami dipacu oleh kecerdasan buatan otonom <b>Nexus-AI</b> yang menjalankan analisis prediktif berbasis machine learning milidetik. Sistem enkripsi tingkat kuantum berlapis memastikan data negara kebal terhadap peretasan konvensional maupun komputasi masa depan.
+                    </p>
+                    <div class="cta-container">
+                        <button class="cyber-btn" onclick="switchPage('services')"><span>JELAJAHI FASILITAS</span></button>
+                        <button class="cyber-btn alt" onclick="switchPage('terminal')"><span>AKSES TERMINAL KONSOL</span></button>
+                    </div>
+                </div>
+
+                <!-- Radar Simulasi Pertahanan Siber -->
+                <div class="radar-container">
+                    <div class="radar-header">RADAR ANCAMAN GLOBAL // REAL-TIME</div>
+                    <div class="radar-screen">
+                        <div class="radar-sweep"></div>
+                        <div class="radar-blip blip-1"></div>
+                        <div class="radar-blip blip-2"></div>
+                        <div class="radar-center-dot"></div>
+                    </div>
+                    <div class="radar-footer">GRID SECTOR: INDONESIA-CENTRAL (ONLINE)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: FASILITAS -->
+        <section id="page-services" class="page-section">
+            <h1 class="glitch" data-text="INFRASTRUKTUR & FASILITAS">INFRASTRUKTUR & FASILITAS</h1>
+            <p class="subtitle-text">Fasilitas pertahanan fisik dan digital terpadu dengan standar ketahanan militer tertinggi di dunia.</p>
+
+            <!-- Panel Kontrol Darurat Interaktif -->
+            <div class="control-panel-box">
+                <div class="panel-title">PANEL KONTROL DARURAT OPERASIONAL</div>
+                <p>Gunakan tombol di bawah ini untuk mensimulasikan protokol darurat pertahanan siber nasional.</p>
+                <div class="panel-buttons">
+                    <button class="cyber-btn" onclick="triggerLockdown()">AKTIFKAN LOCKDOWN KUANTUM</button>
+                    <button class="cyber-btn alt" onclick="triggerPurge()">BERSIHKAN CACHE ANOMALI</button>
+                </div>
+                <div id="panel-log" class="panel-log">[SYS_READY] Menunggu perintah operator...</div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item" onmouseenter="playSound('hover')">
+                    <div class="img-box">
+                        <img src="KANTOR.jpg" alt="Server Inti">
+                        <div class="img-overlay"></div>
+                    </div>
+                    <div class="item-text">
+                        <h3>Pusat Data Kuantum</h3>
+                        <p>Bunker bawah tanah sedalam 50 meter dengan proteksi anti-EMP, enkripsi AES-4096-CTR, dan sistem pendingin aktif berbasis nitrogen cair.</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onmouseenter="playSound('hover')">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="Ruang Kontrol">
+                        <div class="img-overlay"></div>
+                    </div>
+                    <div class="item-text">
+                        <h3>Pusat Komando Utama</h3>
+                        <p>Pemantauan lalu lintas data global secara real-time dengan integrasi AI untuk pencegatan instan dan pelacakan balik (trace-back) IP penyerang.</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onmouseenter="playSound('hover')">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Protokol">
+                        <div class="img-overlay"></div>
+                    </div>
+                    <div class="item-text">
+                        <h3>Protokol Pertahanan</h3>
+                        <p>Arsitektur Intrusion Prevention System (IPS) dinamis dengan firewall polimorfik yang mengubah struktur pertahanan otomatis setiap 3 detik.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: KONSOL TERMINAL -->
+        <section id="page-terminal" class="page-section">
+            <h1 class="glitch" data-text="SYS.ADMIN_CONSOLE">SYS.ADMIN_CONSOLE</h1>
+            <p class="subtitle-text">Antarmuka root mainframe terenkripsi untuk pengawasan dan eksekusi perintah langsung.</p>
+            
+            <div class="terminal-box large-terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">ROOT@CYBERLIFE_OS:~#</span>
+                </div>
+                <div class="terminal-body" id="terminal-body-scroll">
+                    <p id="terminal-output"></p><span class="cursor"></span>
+                </div>
+                <div class="terminal-input-row">
+                    <span>></span>
+                    <input type="text" id="terminal-command-input" placeholder="Ketik perintah (help, scan, status, clear, override, self-destruct)..." autofocus>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h3>Lokasi Operasional</h3>
+            <p>CyberLife Tower, Lantai 99</p>
+            <p>Jl. Jendral Soedirman, Jakarta 10220</p>
+        </div>
+        <div class="footer-section">
+            <h3>Kontak Darurat</h3>
+            <p>Secure Line: +62-8263-9922</p>
+            <p>Email: cyberlifeidn.gmail.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Status Sinyal</h3>
+            <ul>
+                <li class="status-online">[ Mainframe ] : ONLINE</li>
+                <li class="status-online">[ Nexus-AI ] : SINKRON</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
